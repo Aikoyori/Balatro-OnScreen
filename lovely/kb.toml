@@ -21,4 +21,3 @@ position = "after"
 payload = '''
 ONSC.release_hook(args)
 '''
-
