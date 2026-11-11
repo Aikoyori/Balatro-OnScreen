@@ -1,5 +1,5 @@
 _G.ONSC = {
-
+    
 }
 
 -- Balala Unit to Pixels (i am not pasting the formula 100 times)
@@ -7,10 +7,13 @@ ONSC.BU2PX = function (bu)
     return bu * (G.TILESCALE*G.TILESIZE)
 end
 
+
+
 local oldhook = G.FUNCS.select_text_input
 G.FUNCS.select_text_input = function(e)
     if true then -- for testing, in final version you should be able to toggle this
-        local desired_y = ONSC.BU2PX(e.T.y) > love.graphics.getHeight() / 2 and math.min ( love.graphics.getHeight() / 2 + (ONSC.BU2PX(e.T.y) - love.graphics.getHeight() / 2) * 3.5, love.graphics.getHeight()) or ONSC.BU2PX(e.T.y)
+        local factor = 3
+        local desired_y = ONSC.BU2PX(e.T.y) > love.graphics.getHeight() / factor and math.min ( love.graphics.getHeight() / factor + (ONSC.BU2PX(e.T.y) - love.graphics.getHeight() / factor) * 3.5, love.graphics.getHeight()) or ONSC.BU2PX(e.T.y)
         love.keyboard.setTextInput( true, ONSC.BU2PX(e.T.x), desired_y, ONSC.BU2PX(e.T.w), ONSC.BU2PX(e.T.h))
     end
     return oldhook(e)
