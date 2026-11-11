@@ -1,0 +1,14 @@
+{
+ "id": "onscreen",
+ "name": "OnScreen",
+ "display_name": "On Screen Input",
+ "author": ["Aikoyori"],
+ "description": "Forces Balatro to use native OS keyboard instead of its own thing",
+ "prefix": "onscreen",
+ "main_file": "main.lua",
+ "priority": 0,
+ "badge_colour": "4f4f4f",
+ "badge_text_colour": "ffffff",
+ "version": "1.0.0",
+ "dependencies": []
+}

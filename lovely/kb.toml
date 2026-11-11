@@ -1,0 +1,24 @@
+[manifest]
+version = "1.2"
+dump_lua = true
+priority = 1073741823
+
+[[patches]]
+[patches.copy]
+target = "main.lua"
+position = "append"
+sources = [
+    "post_hooks.lua",
+]
+
+
+[[patches]]
+[patches.pattern]
+match_indent = true
+target = "functions/button_callbacks.lua"
+pattern = "  elseif args.key == 'RETURN' then --Release the hook"
+position = "after"
+payload = '''
+ONSC.release_hook(args)
+'''
+
